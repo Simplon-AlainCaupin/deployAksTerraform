@@ -1,14 +1,14 @@
 variable "network-config" {
   type         = object({
-    name         = string
-    location     = string
-    vnet_name    = string
-    subnet_name  = string
+    name           = string
+    location_name  = string
+    vnet_name      = string
+    subnet_name    = string
     )}
     default      = {
-      name         = "briefterra-lain"
-      location     = "west europe"
-      vnet_name    = "briefterra-lain-vnet"
-      subnet_name  = "briefterra-lain-subnet"
+      name              = "briefterra-lain"
+      location_name     = "west europe"
+      vnet_name         = "briefterra-lain-vnet"
+      subnet_name       = "briefterra-lain-subnet"
     }
 }
