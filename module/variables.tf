@@ -6,7 +6,7 @@ variable "resource_group_name" {
   default      = "briefterra-lain"
 }
 
-variable "location" {
+variable "location_name" {
   description  = "region du rg"
   type         = string
   default      = "West Europe"
