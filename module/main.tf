@@ -1,22 +1,18 @@
-provider "azurerm" {
-  features {}
-}
-
-resource "azurerm_resource_group" "rgbriefterralain" {
+resource "azurerm_resource_group" "lain-rg" {
   name     = var.resource_group_name
-  location = var.location_name
+  location = var.resource_group_location
 }
 
-resource "azurerm_virtual_network" "vnetbriefterralain" {
+resource "azurerm_virtual_network" "lain-vnet" {
   name                = var.vnet_name
-  address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.rgbriefterralain.location
-  resource_group_name = azurerm_resource_group.rgbriefterralain.name
+  location            = var.resource_group_location
+  resource_group_name = azurerm_resource_group.lain-rg.name
+  address_space       = var.vnet_address_space
 }
 
-resource "azurerm_subnet" "subnetbriefterralain" {
+resource "azurerm_subnet" "lain-subnet" {
   name                 = var.subnet_name
-  resource_group_name  = azurerm_resource_group.rgbriefterralain.name
-  virtual_network_name = azurerm_virtual_network.vnetbriefterralain.name
-  address_prefixes     = ["10.0.1.0/24"]
+  resource_group_name  = azurerm_resource_group.lain-rg.name
+  virtual_network_name = azurerm_virtual_network.lain-vnet.name
+  address_prefixes     = [var.subnet_address_prefix]
 }
